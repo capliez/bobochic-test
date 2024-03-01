@@ -9,26 +9,32 @@ class PromoCode
     private const ALL = [
         [
             'code' => 'VENTEFLASH',
+            'startAt' => '2025-02-25',
             'expiredAt' => '2024-03-04',
         ],
         [
             'code' => 'TAPISGRATUIT',
+            'startAt' => '2024-02-01',
             'expiredAt' => '2024-03-06',
         ],
         [
             'code' => 'LEOPOLD10',
+            'startAt' => '2024-02-21',
             'expiredAt' => '2024-03-10',
         ],
         [
             'code' => 'BOUGIE15',
+            'startAt' => '2024-02-20',
             'expiredAt' => '2024-03-31',
         ],
         [
             'code' => 'SOLDE2024',
+            'startAt' => '2024-01-24',
             'expiredAt' => '2024-02-02',
         ],
         [
             'code' => 'MOISBLANC',
+            'startAt' => '2024-01-01',
             'expiredAt' => '2024-01-23',
         ]
     ];
