@@ -1,0 +1,128 @@
+@import "../variables";
+
+$srcImg: '../../img/';
+$imgMobileAndTablet: $srcImg + 'presentation-mobile.png';
+$imgDefault: $srcImg + 'presentation.png';
+
+.promoCodeSection {
+
+  h2 {
+    font-size: 31px;
+    line-height: 35px;
+  }
+
+  .code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 56px;
+    border: 2px dashed #737373;
+    border-radius: 8px;
+    padding: 8px 16px 8px 16px;
+    gap: 8px;
+    max-width: 100%;
+
+    &:not(.disabled) {
+      cursor: pointer;
+    }
+
+    &.disabled {
+      color: $whiteDisabled !important;
+      border-color: $whiteDisabled;
+    }
+
+    span {
+      line-height: 26px;
+    }
+
+    i {
+      font-size: 20px;
+    }
+  }
+
+  .item {
+    padding: 16px 24px 16px 24px;
+    border: 2px solid $whiteDisabled;
+    border-radius: 8px;
+    max-height: 100%;
+  }
+
+  .sponsorship {
+    background-color: #F2F2F2;
+    padding: 16px 24px 16px 24px;
+    border-radius: 8px;
+    border: 2px solid $whiteDisabled;
+
+    p {
+      line-height: 24px;
+    }
+
+  }
+
+}
+
+#promoCodePresentation {
+  background: url($imgMobileAndTablet) center/cover;
+  height: 480px;
+
+  h1 {
+    line-height: 64px;
+  }
+
+  h2 {
+    line-height: 24px;
+  }
+
+  div.presentation {
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.1);
+
+    p {
+      line-height: 26px;
+    }
+  }
+
+}
+
+#promoCodeDisabled {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: $small-screen) {
+  #promoCodePresentation {
+    h1 {
+      font-size: 31px !important;
+    }
+    div.presentation {
+      border-radius: 0 !important;
+      p {
+        line-height: 16px !important;
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+@media (min-width: #{$small-screen + 0.02}) {
+  #promoCodePresentation {
+    div.presentation {
+      width: 705px;
+    }
+  }
+
+}
+
+@media (min-width: #{$medium-screen + 0.02}) {
+  #promoCodePresentation {
+    background: url($imgDefault) center/cover !important;
+
+    div.presentation {
+      width: 1078px;
+    }
+  }
+}

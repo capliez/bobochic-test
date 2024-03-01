@@ -1,0 +1,32 @@
+@import '../variables';
+
+#bannerDiscover {
+  background-color: $black;
+  color: $white;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 900;
+
+  div.languages {
+    border-right: 1px solid #333333;
+  }
+
+}
+
+@media (max-width: $small-screen) {
+  #bannerDiscover {
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: #{$small-screen + 0.02}) {
+  #bannerDiscover {
+    padding: 8px 40px 16px 40px;
+  }
+}
+
+@media (min-width: #{$medium-screen + 0.02}) {
+  #bannerDiscover {
+    padding: 8px 64px;
+  }
+}

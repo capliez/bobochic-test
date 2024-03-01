@@ -1,0 +1,35 @@
+@import '../variables';
+
+#bannerReinsurance {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  height: 100%;
+
+  p {
+    line-height: 16px;
+    a {
+      text-decoration: none;
+      color: #FFFFFF
+    }
+  }
+}
+
+@media (max-width: $small-screen) {
+  #bannerReinsurance {
+    padding: 32px 24px 32px 24px;
+
+    i {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: #{$small-screen + 0.02}) {
+  #bannerReinsurance {
+    padding: 40px 64px 40px 64px;
+
+    i {
+      font-size: 18px;
+    }
+  }
+}

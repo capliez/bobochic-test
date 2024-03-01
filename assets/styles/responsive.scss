@@ -1,0 +1,21 @@
+@import 'variables';
+
+@media (max-width: $small-screen) {
+}
+
+@media (min-width: #{$small-screen + 0.02}) {
+}
+
+@media (min-width: #{$medium-screen + 0.02}) {
+  .w-md-auto {
+    width: auto !important;
+  }
+
+}
+
+@media (min-width: #{$large-screen + 0.02}) {
+  .w-lg-50 {
+    width: 50% !important;
+  }
+}
+

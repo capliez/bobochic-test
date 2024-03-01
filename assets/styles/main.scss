@@ -1,0 +1,67 @@
+@import 'variables';
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: $black;
+}
+
+p {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.text-black {
+  color:  $black;
+}
+
+.text-success {
+  color: #14C802 !important;
+}
+
+.text-danger {
+  color: #E80206 !important;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  max-width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  padding: 8px;
+  height: 40px;
+  border-radius: 8px;
+
+  &.btn-black {
+    background-color: $black;
+    color: $white;
+    border: none;
+  }
+
+  &.btn-outline-black {
+    color: $white;
+    border: 1px solid #737373;
+    background-color: $black;
+  }
+
+  &.btn-white {
+    background-color: $white;
+    border: none;
+    color: $black;
+  }
+
+}
