@@ -1,0 +1,13 @@
+{% trans_default_domain 'promoCode' %}
+
+<section id="promoCodeDisabled" class="container promoCodeSection">
+    <h2 class="fw-700 text-center">{{ 'promo_code_disabled'|trans|capitalize }}</h2>
+
+    {% if items is defined and items|length > 0 %}
+        <div class="row">
+            {% for item in items %}
+                {% include 'front/components/promoCode/item.html.twig' with {item, isDisabled: true} %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

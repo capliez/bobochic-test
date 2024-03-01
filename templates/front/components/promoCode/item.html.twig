@@ -1,0 +1,23 @@
+{% trans_default_domain 'promoCode' %}
+
+{% set transDesc = item.code|lower ~ '.desc' %}
+{% set expiredAt = item.expiredAt|date('d/m/Y') %}
+{% set startAt = item.startAt|date('d/m/Y') %}
+{% set isDisabled = isDisabled is defined ? isDisabled : false %}
+
+<div class="col-sm-6">
+    <div class="item my-2 my-sm-3">
+        <div {% if isDisabled == false %}{{ stimulus_controller('copyToClipboard')}} {{ stimulus_action('copyToClipboard', 'handleClick', 'click')}}{% endif%} class="code {% if isDisabled %}disabled{% endif%} m-auto">
+            {% if isDisabled == false %}<i class="bi bi-copy mr-3"></i>{% endif %}
+            <span class="fw-700 fs-20">{{ item.code }}</span>
+        </div>
+        <div class="expiredAt my-3 fs-12 text-center">
+            <p>{{ 'valid_until'|trans }} <span class="fw-700 {% if isDisabled %}text-danger{% else %}text-success{% endif %}">{{ expiredAt }}</span></p>
+        </div>
+        <div class="description fs-12">
+            <p>{{ transDesc|trans|raw }}</p>
+            <p>{{ 'offer_not_valid_purchase'|trans({ '%expiredAt%': expiredAt, '%startAt%': startAt })|raw }}</p>
+        </div>
+        <div class="information font-italic fs-12 mt-3"><p>{{ 'offer_valid_only'|trans }}</p></div>
+    </div>
+</div>

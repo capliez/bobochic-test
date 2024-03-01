@@ -1,0 +1,22 @@
+{% trans_default_domain 'promoCode' %}
+
+<section class="container mt-5 promoCodeSection">
+    <h2 class="fw-700 text-center">{{ 'promo_code'|trans|capitalize }}</h2>
+
+    {% if items is defined and items|length > 0 %}
+        <div class="row">
+            {% for item in items %}
+                {% include 'front/components/promoCode/item.html.twig' %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="sponsorship mt-2 d-flex flex-column align-items-sm-center flex-sm-row justify-content-between">
+        <p class="fs-16 w-100 w-lg-50">{{ 'you_can_also_benefit_discount'|trans }}</p>
+        <button title="{{ 'sponsorship_page'|trans|capitalize }}" class="btn btn-black mt-3 mt-sm-0 justify-content-lg-center justify-content-sm-end">
+            <span class="d-sm-none d-md-block">{{ 'sponsorship_page'|trans|capitalize }}</span>
+            <i class="bi bi-chevron-right ms-3 ms-sm-0 ms-md-3"></i>
+        </button>
+    </div>
+
+</section>

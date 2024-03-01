@@ -1,0 +1,19 @@
+{% trans_default_domain 'reinsurance' %}
+
+{% if allReinsurances is defined and allReinsurances|length > 0 %}
+<section id="bannerReinsurance">
+    <div class="row justify-content-sm-between">
+        {% for item in allReinsurances %}
+            <div class="col-sm-6 col-lg-2 {% if loop.last == false %}mb-4{% endif %} mb-lg-0 d-flex align-items-center justify-content-between">
+                <div class="d-flex flex-row flex-lg-column align-items-center align-items-lg-start">
+                    <i class="bi mb-lg-1 bi-{{ item.icon }}"></i>
+                    <p class="fs-12 ms-3 ms-lg-0 fw-700">
+                        {{ item.text|trans|raw }}
+                    </p>
+                </div>
+                <i class="fs-13 ms-3 bi bi-chevron-right align-self-end"></i>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

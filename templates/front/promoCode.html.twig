@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('promoCode') }}
+{% endblock %}
+
+{% block body %}
+
+    <section id="promoCodePresentation">
+
+        <div class="d-flex flex-column h-100 justify-content-end">
+
+            {% include 'front/_partials/breadcrumb.html.twig' %}
+
+            <div class="d-flex flex-column mt-2 mt-sm-0 align-items-center">
+                <div class="mb-3 mb-sm-0 py-sm-1 py-md-3 text-center container">
+                    <h1 class="mb-3 fs-49 fw-900">Code promo Bobochic</h1>
+                    <h2 class="text-uppercase fs-16 fw-600">Découvrez tous les codes promo actifs sur le site Bobochic</h2>
+                </div>
+
+                <div class="mb-sm-4 presentation">
+                    <p class="fw-700 fs-20 text-center">
+                        <b>Bobochic</b> est une marque 100 % française qui s’impose sur le marché de l’ameublement comme incontournable. En effet, notre équipe travaille quotidiennement pour créer de nouveaux designs, coloris, paternes tout en pensant ergonomie et esthétisme. Vous pourrez retrouver des meubles tels que des canapés, des meubles de cuisine, de salle de bain, des lits, des tables basses, des bureaux, des bibliothèques ou encore des accessoires de décoration.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    {% include 'front/components/promoCode/enabled.html.twig'  with { items: promoCodeEnabled } %}
+    {% include 'front/components/promoCode/disabled.html.twig' with { items: promoCodeDisabled } %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('promoCode') }}
+    {% endblock %}
+
+{% endblock %}
