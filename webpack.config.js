@@ -1,4 +1,8 @@
 const Encore = require('@symfony/webpack-encore');
+const TerserPlugin = require("terser-webpack-plugin");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+
+const NAME = "Bobochic - Webpack Encore";
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -47,6 +51,43 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
+    .configureTerserPlugin((options) => {
+        options.extractComments = false;
+        options.parallel = true;
+        options.terserOptions = {
+            mangle: true,
+            compress: {
+                drop_console: true,
+                drop_debugger: true,
+                warnings: false,
+                booleans: true,
+                dead_code: true,
+                collapse_vars: true,
+                comparisons: true,
+                conditionals: true,
+                evaluate: true,
+                hoist_funs: true,
+                hoist_props: true,
+                inline: true,
+                join_vars: true,
+                loops: true,
+                negate_iife: true,
+                properties: true,
+                passes: true,
+                pure_funcs: true,
+                pure_getters: true,
+                reduce_funcs: true,
+                reduce_vars: true,
+                sequences: true,
+                side_effects: true,
+                switches: true,
+            },
+            output: {
+                comments: false,
+            },
+        };
+    })
+
     // configure Babel
     // .configureBabel((config) => {
     //     config.plugins.push('@babel/a-babel-plugin');
@@ -69,10 +110,31 @@ Encore
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
+    .enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
 ;
 
-module.exports = Encore.getWebpackConfig();
+if (Encore.isProduction()) {
+    Encore.addPlugin(
+        new CompressionWebpackPlugin({
+            test: /\.(js|css|scss|jsx|html|svg)$/,
+            threshold: 8192,
+            minRatio: 0.8,
+        }),
+    );
+}
+
+// Minify code
+const optimization = {
+    minimize: Encore.isProduction(),
+    minimizer: [new TerserPlugin()],
+};
+
+module.exports = {
+    ...Encore.getWebpackConfig(),
+    name: NAME,
+    optimization,
+};
+
